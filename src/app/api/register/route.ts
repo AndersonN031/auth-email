@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import bcrypt from "bcrypt"
 import { PrismaGetInscante } from "@/lib/prisma-pg";
 import { User } from "@prisma/client";
-import { error } from "console";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 
 interface RegisterProps {

@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label"
 import { FormEvent, useCallback, useRef, useState } from "react"
 import axios, { AxiosError } from 'axios'
 import { RegisterResponse } from "@/app/api/register/route"
-import { Icon, Loader } from "lucide-react"
+import { Loader } from "lucide-react"
 import Link from "next/link"
 
 
@@ -65,7 +65,7 @@ export function RegisterForm({ className, ...props }: React.ComponentProps<"div"
 
 
 
-                const response = await axios.post<RegisterResponse>("/api/register", {
+                await axios.post<RegisterResponse>("/api/register", {
                     email,
                     password: pass1,
                     password2: pass2,
