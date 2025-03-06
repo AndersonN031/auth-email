@@ -82,7 +82,7 @@ export function RegisterForm({ className, ...props }: React.ComponentProps<"div"
         } finally {
             setFormLoading(false);
         }
-    }, []);
+    }, [router]);
 
     return (
         <div className={cn("flex justify-center items-center min-h-screen", className)} {...props}>

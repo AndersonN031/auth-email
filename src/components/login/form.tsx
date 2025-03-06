@@ -89,6 +89,8 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
                                         <p>Suas credenciais estão incorretas.</p>
                                     </div>
                                 )}
+                                {formSuccess && <p className="text-green-600">Login realizado com sucesso!</p>}
+
                                 <Button
                                     type="submit"
                                     className="w-full flex items-center gap-2"
