@@ -14,7 +14,7 @@ export interface LoginResponse {
     session?: string;
 }
 
-export async function GET(request: Request) {
+export async function GET() {
     const authCookie = (await cookies()).get("auth-session");
 
     const sessionToken = authCookie?.value || "";
@@ -85,7 +85,7 @@ export async function POST(request: Request) {
 
         return NextResponse.json({ session: "awdijawoid" }, { status: 200 });
 
-    } catch (error) {
+    } catch (session) {
         return NextResponse.json({ session: "" }, { status: 400 });
     }
 

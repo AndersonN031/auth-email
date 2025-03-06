@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import axios, { AxiosHeaders } from "axios";
+import axios from "axios";
 import { headers } from "next/headers";
 
 export default async function Home() {
