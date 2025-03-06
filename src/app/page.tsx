@@ -5,7 +5,8 @@ import { headers } from "next/headers";
 export default async function Home() {
   try {
     const headersList = headers();
-    const headersObject = Object.fromEntries((await headersList).entries()); // Converter para objeto
+    const headersObject = Object.fromEntries((await headers()).entries());
+    // Converter para objeto
 
     await axios.get(`${process.env.API_URL}/login`, {
       headers: headersObject, // Passa os headers corretamente
