@@ -3,6 +3,9 @@ import bcrypt from "bcrypt"
 import { PrismaGetInscante } from "@/lib/prisma-pg";
 import { User } from "@prisma/client";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
+import { GenerateSession } from "@/lib/generate-session";
+import { addHours } from "date-fns";
+import { cookies } from "next/headers";
 
 interface RegisterProps {
     email: string;
@@ -55,6 +58,27 @@ export async function POST(request: Request) {
             },
         })
 
+        const sessionToken = GenerateSession({
+            email,
+            passwordHash: hash
+        });
+
+        await prisma.sessions.create({
+            data: {
+                userId: user.id,
+                token: sessionToken,
+                valid: true,
+                expiresAt: addHours(new Date(), 24),
+            }
+        });
+
+        (await cookies()).set({
+            name: 'auth-session',
+            value: sessionToken,
+            httpOnly: true,
+            path: '/',
+        })
+
         return NextResponse.json(
             { user },
             { status: 201 }
@@ -73,4 +97,3 @@ export async function POST(request: Request) {
 
 }
 
-// VIDEO PAUSADO EM 57:54

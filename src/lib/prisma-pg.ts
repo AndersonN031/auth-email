@@ -15,5 +15,3 @@ export function PrismaGetInscante() {
 
     return prisma
 }
-
-// 37:23
