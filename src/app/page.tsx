@@ -4,7 +4,6 @@ import { headers } from "next/headers";
 
 export default async function Home() {
   try {
-    const headersList = headers();
     const headersObject = Object.fromEntries((await headers()).entries());
     // Converter para objeto
 
