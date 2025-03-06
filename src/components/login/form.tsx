@@ -9,9 +9,11 @@ import axios from 'axios'
 import { Loader } from "lucide-react"
 import Link from "next/link"
 import { LoginResponse } from "@/app/api/login/route"
+import { useRouter } from "next/navigation"
 
 
 export function LoginForm({ className, ...props }: React.ComponentProps<"div">) {
+    const router = useRouter()
     const emailInputRef = useRef<HTMLInputElement>(null);
     const passwordInputRef = useRef<HTMLInputElement>(null);
 
@@ -35,6 +37,10 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
                     email,
                     password: pass1
                 })
+
+                setTimeout(() => {
+                    router.push("/")
+                }, 3000)
 
                 setFormSuccess(true);
             } catch (error) {
