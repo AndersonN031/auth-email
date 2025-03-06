@@ -138,7 +138,7 @@ export function RegisterForm({ className, ...props }: React.ComponentProps<"div"
                             )}
                             <Button
                                 type="submit"
-                                className="w-full flex items-center gap-2"
+                                className="w-full flex items-center gap-2 cursor-pointer"
                                 disabled={formLoading}
                             >
                                 {formLoading && <Loader className="w-[18px] animate-spin" />}
