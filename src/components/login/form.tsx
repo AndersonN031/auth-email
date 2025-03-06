@@ -19,7 +19,6 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
     const [formLoading, setFormLoading] = useState(false);
     const [formSuccess, setFormSuccess] = useState(false);
 
-    formSuccess;
 
     const handleLoginSubmit = useCallback(async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -41,6 +40,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
             } catch (error) {
                 setFormError("Login Invalid")
                 setFormSuccess(false);
+                console.error(error)
             } finally {
                 setFormLoading(false);
             }

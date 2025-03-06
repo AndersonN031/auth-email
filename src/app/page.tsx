@@ -11,6 +11,7 @@ export default async function Home() {
       headers: headersObject, // Passa os headers corretamente
     });
   } catch (error) {
+    console.error(error)
     redirect("/login")
   }
 

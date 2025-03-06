@@ -85,7 +85,8 @@ export async function POST(request: Request) {
 
         return NextResponse.json({ session: "awdijawoid" }, { status: 200 });
 
-    } catch (session) {
+    } catch (error) {
+        console.error(error)
         return NextResponse.json({ session: "" }, { status: 400 });
     }
 
