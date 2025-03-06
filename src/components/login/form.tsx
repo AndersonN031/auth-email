@@ -40,7 +40,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
 
                 setTimeout(() => {
                     router.push("/")
-                }, 3000)
+                }, 500)
 
                 setFormSuccess(true);
             } catch (error) {
